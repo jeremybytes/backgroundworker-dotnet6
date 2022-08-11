@@ -1,0 +1,64 @@
+﻿<Window x:Class="Task.MVVM.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MVVM Task w/ Progress" Height="250" Width="315">
+    <Border Background="{StaticResource ClientBackgroundBrush}"
+            Padding="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Input Section -->
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="Iterations: "
+                       Style="{StaticResource TextBlockStyle}" />
+
+            <TextBox Grid.Row="0" Grid.Column="1"
+                     Name="InputTextBox"
+                     Text="{Binding Iterations}"
+                     Style="{StaticResource TextBoxStyle}" />
+
+            <!-- Progress Section -->
+            <ProgressBar Grid.Row="1" Grid.ColumnSpan="2"
+                         Name="MainProgressBar"
+                         Value="{Binding ProgressPercentage}"
+                         VerticalAlignment="Center" Height="20" />
+
+            <!-- Output Section -->
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="Output: "
+                       Style="{StaticResource TextBlockStyle}" />
+
+            <TextBox Grid.Row="2" Grid.Column="1"
+                     Name="OutputTextBox"
+                     Text="{Binding Output}"
+                     Style="{StaticResource TextBoxStyle}" />
+
+            <!-- Buttons -->
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="2"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <Button Name="StartButton" Content="Start"
+                        Style="{StaticResource ButtonStyle}"
+                        IsEnabled="{Binding StartEnabled}"
+                        Click="StartButton_Click"/>
+                <Button Name="CancelButton" Content="Cancel" 
+                        Style="{StaticResource ButtonStyle}"
+                        IsEnabled="{Binding CancelEnabled}"
+                        Click="CancelButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

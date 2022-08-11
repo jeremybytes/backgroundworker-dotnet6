@@ -13,6 +13,8 @@ This is the long-running process that we want to run on a background thread.
 A WPF desktop application that uses the BackgroundWorker to run the SlowLibrary code in the background (with progress reporting and cancellation).  
 * **BGW.MVVM**  
 The same functionality as the WPF application, but uses the MVVM design pattern. The BackgroundWorker code is in the View Model of the application.  
+* **Task.MVVM**  
+The same functionality as the BGW.MVVM application, but this shows how to use Task and IProgress&lt;T&gt; instead of the BackgroundWorker Component.
 
 ## BackgroundWorker
 What I like about the BackgroundWorker component is that it has just a few events, methods, and properties to get the functionality of running something on a background thread, reporting progress, handling errors, and dealing with cancellation.  
