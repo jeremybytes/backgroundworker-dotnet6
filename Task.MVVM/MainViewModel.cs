@@ -58,7 +58,7 @@ public class MainViewModel : INotifyPropertyChanged
 
         SlowProcessor processor = new(Iterations);
         var task = DoWorkAsync(processor, _cancelTokenSource.Token,
-        new Progress<ProgressData>(UpdateProgress));
+            new Progress<ProgressData>(UpdateProgress));
         task.ContinueWith(TaskComplete);
     }
 
@@ -85,7 +85,7 @@ public class MainViewModel : INotifyPropertyChanged
                     cancelToken.ThrowIfCancellationRequested();
                     int percentComplete = (int)((float)val / (float)Iterations * 100);
                     string updateMessage =
-                        string.Format("Iteration {0} of {1}", val, Iterations);
+                        $"Iteration {val} of {Iterations}";
                     progress.Report(new ProgressData()
                     { Percentage = percentComplete, Message = updateMessage });
                     result = val;

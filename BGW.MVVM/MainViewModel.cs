@@ -96,8 +96,8 @@ public class MainViewModel : INotifyPropertyChanged
             {
                 int percentageComplete =
                     (int)((float)current / iterations * 100);
-                string progressMessage =
-                    string.Format("Iteration {0} of {1}", current, iterations);
+                string progressMessage = 
+                    $"Iteration {current} of {iterations}";
                 worker.ReportProgress(percentageComplete, progressMessage);
             }
 
